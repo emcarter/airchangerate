@@ -14,3 +14,29 @@ output:
 ```{r global_options, include=FALSE}
   knitr::opts_chunk$set(warning = FALSE, message = FALSE, cache = FALSE)
 ```
+
+```{r functions, echo=FALSE}
+  source("../r_scripts/load_data.R")
+```
+
+# beia gambia
+
+```{r}
+  saveRDS(load_beia_gambia(), file = "../r_data/test.RDS")
+```
+
+# beia south africa
+
+```{r}
+
+```
+
+# beia uganda
+
+# epa nepal
+
+# pm and co data from uganda
+
+# pm and co data from uganda and cameroon
+
+# pm data from beijing
