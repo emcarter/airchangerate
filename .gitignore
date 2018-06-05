@@ -5,4 +5,5 @@
 data/
 *.Rproj
 r_data/
+tracking/
 .DS_Store
