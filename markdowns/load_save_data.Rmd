@@ -14,3 +14,16 @@ output:
 ```{r global_options, include=FALSE}
   knitr::opts_chunk$set(warning = FALSE, message = FALSE, cache = FALSE)
 ```
+
+# load functions
+
+```{r}
+  source("../scripts/load_data.R")
+```
+
+# load & save beia gambia data
+
+```{r}
+  saveRDS(load_beia_gambia(), file = "../r_data/beia_gambia.RDS")
+```
+
