@@ -24,6 +24,24 @@ output:
 # load & save beia gambia data
 
 ```{r}
-  saveRDS(load_beia_gambia(), file = "../r_data/beia_gambia.RDS")
+  beia_gambia_baseline <- load_draeger_data(file_path = "../data/BEIA Gambia/Baseline/Raw Files",
+                                            file_pattern = "[0-9].txt",
+                                            pattern_1 = ".*-",
+                                            pattern_2 = "_.*")
 ```
 
+```{r}
+  beia_gambia_followup <- load_draeger_data(file_path = "../data/BEIA Gambia/Follow up",
+                                            file_pattern = "[0-9].txt",
+                                            pattern_1 = ".*-",
+                                            pattern_2 = "_.*")
+```
+
+# load & save beia south africa data
+
+```{r}
+  beia_south_africa <- load_draeger_data(file_path = "../data/BEIA South Africa/CO/Baseline",
+                                         file_pattern = "_C..txt",
+                                         pattern_1 = ".*/",
+                                         pattern_2 = "_C..txt")
+```
