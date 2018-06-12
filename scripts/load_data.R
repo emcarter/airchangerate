@@ -9,11 +9,12 @@ library(lubridate)
 # file <- "ABU-01-09-VSARBL-1596_PAC7000_29_9_2012.txt"
 # file <- "ABU-02-11-VSARBL-1650_PAC7000_29_9_2012.txt"
 # file <- "SUK-02-12ARBL-1596_PAC7000_12_7_2012.txt"
-load_beia_gambia <- function(){
+load_draeger_data <- function(file_path, file_pattern,
+                              pattern_1, pattern_2){
   
   data <-
-    lapply(list.files("../data/beia-gambia/",
-                      pattern = "[0-9].txt",
+    lapply(list.files(path = file_path,
+                      pattern = file_pattern,
                       full.names = TRUE),
 
            function(file)
@@ -31,8 +32,8 @@ load_beia_gambia <- function(){
                                         val = col_double()),
                                  col_names = c("x1", "datetime", "val"),
                                  na = c("", "NA")) %>%
-               dplyr::mutate(logger_id = sub(".*-", "", file),
-                             logger_id = gsub("_.*", "", logger_id))
+               dplyr::mutate(logger_id = gsub(pattern_1, "", file),
+                             logger_id = gsub(pattern_2, "", logger_id))
 
              }else{
 
@@ -45,8 +46,8 @@ load_beia_gambia <- function(){
                                       val = col_double()),
                                col_names = c("x1", "datetime", "val"),
                                na = c("", "NA")) %>%
-                 dplyr::mutate(logger_id = sub(".*-", "", file),
-                               logger_id = gsub("_.*", "", logger_id))
+                 dplyr::mutate(logger_id = gsub(pattern_1, "", file),
+                               logger_id = gsub(pattern_2, "", logger_id))
                }
            )
 
